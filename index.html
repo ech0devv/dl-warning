@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Before you download...</title>
+        <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+        <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"> 
+
+    </head>
+    <body style="--mdc-theme-secondary:#6200ee">
+        <div style="margin-left: 7.5px;">
+            <h1>before you download</h1>
+        
+            <p>i am not responsible for:</p>
+            <ul>
+                <li>bricked devices</li>
+                <li>issues only you are having</li>
+                <li>angry parents</li>
+                <li>electrical fires</li>
+                <li>viral outbreaks</li>
+            </ul>
+        </div>
+        <div style="display: block;">
+                <div class="mdc-form-field" >
+            <div class="mdc-checkbox">
+              <input type="checkbox"
+                     class="mdc-checkbox__native-control"
+                     id="checkbox-1"/>
+              <div class="mdc-checkbox__background">
+                <svg class="mdc-checkbox__checkmark"
+                     viewBox="0 0 24 24">
+                  <path class="mdc-checkbox__checkmark-path"
+                        fill="none"
+                        d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                </svg>
+                <div class="mdc-checkbox__mixedmark"></div>
+              </div>
+              <div class="mdc-checkbox__ripple"></div>
+            </div> 
+                          <label for="checkbox-1">I assume the risks of flashing this ROM and would like to continue to the download page.</label>
+ 
+        </div>
+
+
+            <button class="mdc-button mdc-button--raised" disabled="true" id="download" style="display: block; margin-left: 7.5px;">
+                <span class="mdc-button__label">Download</span>
+              </button>
+
+          </div>
+          <script>
+            setInterval(() => {
+                if(document.getElementById("checkbox-1").checked){
+                    document.getElementById("download").disabled = false;
+                }else{
+                    document.getElementById("download").disabled = true;
+                }
+            }, 100)
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const rdir = urlParams.get('rdir')
+            document.getElementById("download").onclick = function(){
+window.location.href = rdir;
+            }
+          </script>
+                  <style>
+                    * {
+                        font-family: 'Open Sans', sans-serif;
+                    }
+                </style>
+    </body>
+</html>
